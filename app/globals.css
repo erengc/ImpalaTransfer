@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #14b8a6;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0d9488;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* Datetime input styling */
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.5);
+  cursor: pointer;
+}
+
+input[type="datetime-local"] {
+  color-scheme: light;
+}
+
+@theme inline {
+  /* Ana Renkler - 60-30-10 Kuralı */
+  
+  /* Cream/Bej (60% - Dominant) */
+  --color-cream-50: #fdfcfb;
+  --color-cream-100: #faf8f5;
+  --color-cream-200: #f5f1ea;
+  --color-cream-300: #ede7db;
+  --color-cream-400: #e3dac9;
+  --color-cream-500: #d4c9b3;
+  --color-cream-600: #c4b49a;
+  
+  /* Crimson/Turkuaz (30% - İkincil) */
+  --color-crimson-50: #f0fdfa;
+  --color-crimson-100: #ccfbf1;
+  --color-crimson-200: #99f6e4;
+  --color-crimson-300: #5eead4;
+  --color-crimson-400: #2dd4bf;
+  --color-crimson-500: #14b8a6;
+  --color-crimson-600: #0d9488;
+  --color-crimson-700: #0f766e;
+  --color-crimson-800: #115e59;
+  --color-crimson-900: #134e4a;
+  
+  /* Sage/Açık Yeşil (10% - Vurgu) */
+  --color-sage-50: #f6f7f6;
+  --color-sage-100: #e3e8e3;
+  --color-sage-200: #c7d2c7;
+  --color-sage-300: #a4b8a4;
+  --color-sage-400: #7d9b7d;
+  --color-sage-500: #5f7f5f;
+  --color-sage-600: #4a654a;
+  
+  /* Primary (Altın - Eski renk, kodlarda kullanılıyor) */
+  --color-primary-50: #fefce8;
+  --color-primary-100: #fef9c3;
+  --color-primary-200: #fef08a;
+  --color-primary-300: #fde047;
+  --color-primary-400: #facc15;
+  --color-primary-500: #d4af37;
+  --color-primary-600: #ca8a04;
+  --color-primary-700: #a16207;
+  --color-primary-800: #854d0e;
+  --color-primary-900: #713f12;
+  
+  /* Accent (Turuncu) */
+  --color-accent: #f59e0b;
+  
+  /* Fontlar */
+  --font-sans: var(--font-outfit), system-ui, -apple-system, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-mono: var(--font-space), 'Courier New', monospace;
+  --font-display: var(--font-fraunces), serif;
+  
+  /* Diğer */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  top: 0 !important;
+}
+
+/* Font Feature Settings */
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: 'ss01' on, 'ss02' on;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: 'tnum' on, 'lnum' on;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Anti-aliasing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection styling */
+::selection {
+  background-color: var(--color-crimson-200);
+  color: var(--color-crimson-900);
+}
+
+/* Focus states */
+*:focus-visible {
+  outline: 2px solid var(--color-crimson-500);
+  outline-offset: 2px;
+}

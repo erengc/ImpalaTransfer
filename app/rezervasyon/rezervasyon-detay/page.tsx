@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Car, MapPin, Clock, Users, Calendar, ArrowRight, Shield, CheckCircle, Phone, Mail, User, MessageSquare, Plane, ArrowLeft, CreditCard, Briefcase, Star, Award, Zap, Gift } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,7 +8,7 @@ import Footer from '../../components/Footer';
 import { useCurrency } from '../../contexts/CurrencyContext';
 
 
-export default function ReservationDetail() {
+function ReservationDetailContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   
@@ -402,9 +402,14 @@ const price = searchParams.get('price') || '0'; // Fiyat zaten currency ile birl
   const isRtl = language === 'ar';
 
   // Hesaplamalar
-  const [distance] = useState(() => Math.floor(Math.random() * (80 - 30) + 30));
-  const duration = Math.floor(distance * 1.2);
-// EUR bazlı hesaplamalar
+const [distance, setDistance] = useState(0);
+const [duration, setDuration] = useState(0);
+
+useEffect(() => {
+  const randomDistance = Math.floor(Math.random() * (80 - 30) + 30);
+  setDistance(randomDistance);
+  setDuration(Math.floor(randomDistance * 1.2));
+}, []);
 // Currency Context'ten seçili para birimini al
 const { currency } = useCurrency();
 const isTurkishLira = currency === 'TRY';
@@ -1248,5 +1253,20 @@ const tipOptions = isTurkishLira ? [
 
       <Footer language={language} />
     </div>
+  );
+}
+
+export default function ReservationDetail() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-500 mx-auto mb-4"></div>
+          <p className="text-white font-semibold">Yükleniyor...</p>
+        </div>
+      </div>
+    }>
+      <ReservationDetailContent />
+    </Suspense>
   );
 }

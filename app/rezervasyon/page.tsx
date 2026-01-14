@@ -25,8 +25,15 @@ function RezervasyonContent() {
   const passengers = searchParams.get('passengers') || '1';
   const isRoundTrip = searchParams.get('roundTrip') === 'true';
   
-  const [distance] = useState(() => Math.floor(Math.random() * 50) + 20);
-  const duration = Math.floor(distance / 0.8);
+const [distance, setDistance] = useState(0);
+const [duration, setDuration] = useState(0);
+
+useEffect(() => {
+  // Client-side'da random değer üret
+  const randomDistance = Math.floor(Math.random() * 50) + 20;
+  setDistance(randomDistance);
+  setDuration(Math.floor(randomDistance / 0.8));
+}, []);
 
   // --- DİL SİSTEMİ ---
   const [language, setLanguage] = useState<'tr' | 'en' | 'de' | 'ru' | 'ar'>('tr');

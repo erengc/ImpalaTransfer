@@ -20,6 +20,8 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [pickupLocation, setPickupLocation] = useState('');
   const [dropoffLocation, setDropoffLocation] = useState('');
+  const [isPickupValid, setIsPickupValid] = useState(false);
+  const [isDropoffValid, setIsDropoffValid] = useState(false);
   const [departureDate, setDepartureDate] = useState('');
   const [departureTime, setDepartureTime] = useState('');
   const [language, setLanguage] = useState<'tr' | 'en' | 'de' | 'ru' | 'ar'>('tr');
@@ -75,7 +77,7 @@ const translations = {
     form_roundtrip: 'Gidiş-Dönüş',
     form_from: 'NEREDEN',
     form_to: 'NEREYE',
-    form_date: 'TARİH',
+    form_date: 'SAAT & TARİH',
     form_return_date: 'DÖNÜŞ TARİHİ',
     form_departure_date: 'GİDİŞ TARİHİ',
     form_passengers: 'YOLCU',
@@ -295,7 +297,7 @@ const translations = {
     form_roundtrip: 'Round Trip',
     form_from: 'FROM',
     form_to: 'TO',
-    form_date: 'DATE',
+    form_date: 'TIME & DATE',
     form_return_date: 'RETURN DATE',
     form_departure_date: 'DEPARTURE DATE',
     form_passengers: 'PASSENGERS',
@@ -513,7 +515,7 @@ const translations = {
     form_roundtrip: 'Hin- und Rückfahrt',
     form_from: 'VON',
     form_to: 'NACH',
-    form_date: 'DATUM',
+    form_date: 'UHRZEİT & DATUM',
     form_return_date: 'RÜCKFAHRT DATUM',
     form_departure_date: 'HINFAHRT DATUM',
     form_passengers: 'PASSAGIERE',
@@ -731,7 +733,7 @@ const translations = {
     form_roundtrip: 'Туда и обратно',
     form_from: 'ОТКУДА',
     form_to: 'КУДА',
-    form_date: 'ДАТА',
+    form_date: 'Время и Дата',
     form_return_date: 'ДАТА ВОЗВРАТА',
     form_departure_date: 'ДАТА ОТПРАВЛЕНИЯ',
     form_passengers: 'ПАССАЖИРЫ',
@@ -949,7 +951,7 @@ const translations = {
     form_roundtrip: 'ذهاب وعودة',
     form_from: 'من',
     form_to: 'إلى',
-    form_date: 'التاريخ',
+    form_date: 'الوقت والتاريخ',
     form_return_date: 'تاريخ العودة',
     form_departure_date: 'تاريخ المغادرة',
     form_passengers: 'الركاب',
@@ -1310,6 +1312,10 @@ const heroContent = [
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+      if (!isPickupValid || !isDropoffValid) {
+    alert('Lütfen listeden lokasyon seçin. Manuel yazılan adresler kabul edilmez.');
+    return;
+  }
     const params = new URLSearchParams({
       pickup: pickupLocation,
       dropoff: dropoffLocation,
@@ -1711,16 +1717,17 @@ const heroContent = [
       <span className="font-bold text-sm tracking-wider">{t('form_title')}</span>
     </motion.div>
     
-    {/* Sağ - Currency Switcher (Kompakt) */}
+    {/* Sağ - Currency Switcher */}
     <motion.div
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 0.1 }}
     >
-      <CurrencySwitcher variant="compact" />
+      <CurrencySwitcher />
     </motion.div>
   </div>
   
+  {/* Başlık ve Açıklama */}
   <h2 className="font-display text-2xl md:text-3xl font-black text-gray-900 mb-2">
     {t('form_subtitle')}
   </h2>
@@ -1772,24 +1779,27 @@ const heroContent = [
 }`}>
   
   {/* Nereden */}
-  <LocationAutocomplete
-    value={pickupLocation}
-    onChange={setPickupLocation}
-    placeholder={t('form_pickup_placeholder')}
-    label={t('form_from')}
-    icon={<MapPin className="w-5 h-5 text-sage-500" />}
-    required
-  />
+  {/* Nereden */}
+<LocationAutocomplete
+  value={pickupLocation}
+  onChange={setPickupLocation}
+  onValidChange={setIsPickupValid} // YENİ
+  placeholder={t('form_pickup_placeholder')}
+  label={t('form_from')}
+  icon={<MapPin className="w-5 h-5 text-sage-500" />}
+  required
+/>
 
-  {/* Nereye */}
-  <LocationAutocomplete
-    value={dropoffLocation}
-    onChange={setDropoffLocation}
-    placeholder={t('form_dropoff_placeholder')}
-    label={t('form_to')}
-    icon={<MapPin className="w-5 h-5 text-crimson-500" />}
-    required
-  />
+{/* Nereye */}
+<LocationAutocomplete
+  value={dropoffLocation}
+  onChange={setDropoffLocation}
+  onValidChange={setIsDropoffValid} // YENİ
+  placeholder={t('form_dropoff_placeholder')}
+  label={t('form_to')}
+  icon={<MapPin className="w-5 h-5 text-crimson-500" />}
+  required
+/>
 
   {/* Gidiş Tarihi */}
   <DateTimePicker

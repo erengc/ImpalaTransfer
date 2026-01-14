@@ -917,7 +917,7 @@ export default function KullanimKosullari() {
                   <p className="font-semibold mb-2">{t('sec_5_contact')}</p>
                   <p className="text-sm">
                     📞 Telefon: <a href="tel:+905016206952" className="text-emerald-400 hover:text-emerald-300">0501 620 69 52</a><br />
-                    📧 E-posta: <a href="mailto:info@istanbultransfer.com" className="text-emerald-400 hover:text-emerald-300">info@istanbultransfer.com</a>
+                    📧 E-posta: <a href="mailto:impalatransferist@gmail.com" className="text-emerald-400 hover:text-emerald-300">impalatransferist@gmail.com</a>
                   </p>
                 </div>
               </div>

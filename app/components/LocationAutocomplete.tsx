@@ -11,6 +11,7 @@ interface LocationAutocompleteProps {
   icon?: React.ReactNode;
   label?: string;
   required?: boolean;
+  onValidChange?: (isValid: boolean) => void;
 }
 
 export default function LocationAutocomplete({
@@ -20,9 +21,12 @@ export default function LocationAutocomplete({
   icon,
   label,
   required = false,
+  onValidChange,
 }: LocationAutocompleteProps) {
   const [suggestions, setSuggestions] = useState<Location[]>([]);
   const [isOpen, setIsOpen] = useState(false);
+  const [isValidLocation, setIsValidLocation] = useState(false);
+  const [showError, setShowError] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const debounceRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -40,6 +44,9 @@ export default function LocationAutocomplete({
   // Input değişiminde debounce
   const handleInputChange = (newValue: string) => {
     onChange(newValue);
+    setIsValidLocation(false);
+    setShowError(false);
+    onValidChange?.(false);
 
     // Önceki timeout'u iptal et
     if (debounceRef.current) {
@@ -57,6 +64,9 @@ export default function LocationAutocomplete({
   // Öneri seçildiğinde
   const handleSelectSuggestion = (location: Location) => {
     onChange(location.name);
+    setIsValidLocation(true);
+    setShowError(false);
+    onValidChange?.(true);
     setSuggestions([]);
     setIsOpen(false);
   };
@@ -125,10 +135,33 @@ export default function LocationAutocomplete({
           type="text"
           value={value}
           onChange={(e) => handleInputChange(e.target.value)}
+          onBlur={() => {
+            if (value && !isValidLocation) {
+              setShowError(true);
+            }
+          }}
           placeholder={placeholder}
           required={required}
-          className="w-full pl-12 pr-4 py-4 bg-white border-2 border-cream-300 rounded-2xl text-gray-900 font-semibold placeholder-gray-400 focus:border-crimson-500 focus:ring-4 focus:ring-crimson-100 transition text-sm md:text-base outline-none"
+          className={`w-full pl-12 pr-4 py-4 bg-white border-2 rounded-2xl text-gray-900 font-semibold placeholder-gray-400 focus:ring-4 transition text-sm md:text-base outline-none ${
+            showError && !isValidLocation
+              ? 'border-red-500 focus:border-red-500 focus:ring-red-100'
+              : 'border-cream-300 focus:border-crimson-500 focus:ring-crimson-100'
+          }`}
         />
+
+        {/* Hata Mesajı */}
+        {showError && !isValidLocation && value && (
+          <motion.p
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="absolute left-4 -bottom-6 text-xs text-red-600 font-semibold flex items-center gap-1"
+          >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd"/>
+            </svg>
+            Lütfen listeden bir lokasyon seçin
+          </motion.p>
+        )}
       </div>
 
       {/* Suggestions Dropdown */}

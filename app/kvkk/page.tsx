@@ -706,9 +706,9 @@ export default function KVKK() {
                 <h3 className="font-bold text-primary-400 mb-4">İstanbul Transfer Impala</h3>
                 <div className="space-y-2 text-sm">
                   <p><strong>Adres:</strong> Atatürk Mahallesi, İstanbul, Türkiye</p>
-                  <p><strong>E-posta:</strong> <a href="mailto:info@istanbultransfer.com" className="text-primary-400 hover:text-primary-300">info@istanbultransfer.com</a></p>
+                  <p><strong>E-posta:</strong> <a href="mailto:impalatransferist@gmail.com" className="text-primary-400 hover:text-primary-300">info@istanbultransfer.com</a></p>
                   <p><strong>Telefon:</strong> <a href="tel:+905016206952" className="text-primary-400 hover:text-primary-300">0501 620 69 52</a></p>
-                  <p><strong>Web:</strong> <a href="https://www.istanbultransfer.com" className="text-primary-400 hover:text-primary-300">www.istanbultransfer.com</a></p>
+                  <p><strong>Web:</strong> <a href="https://www.impalatransfer.com" className="text-primary-400 hover:text-primary-300">www.istanbultransfer.com</a></p>
                 </div>
                 <p className="text-gray-400 text-xs mt-4 italic">
                   {t('sec_1_note')}

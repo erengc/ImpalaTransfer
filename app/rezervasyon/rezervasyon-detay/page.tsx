@@ -406,7 +406,7 @@ const [distance, setDistance] = useState(0);
 const [duration, setDuration] = useState(0);
 
 useEffect(() => {
-  const randomDistance = Math.floor(Math.random() * (80 - 30) + 30);
+  const randomDistance = Math.floor(Math.random() * (80 - 30) + 10);
   setDistance(randomDistance);
   setDuration(Math.floor(randomDistance * 1.2));
 }, []);

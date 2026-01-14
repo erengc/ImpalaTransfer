@@ -591,7 +591,7 @@ export default function GizlilikPolitikasi() {
                   <Mail className="w-5 h-5 text-primary-500" />
                   <div>
                     <p className="text-gray-400 text-sm">E-posta</p>
-                    <a href="mailto:info@istanbultransfer.com" className="font-semibold hover:text-primary-400">info@istanbultransfer.com</a>
+                    <a href="mailto:impalatransferist@gmail.com" className="font-semibold hover:text-primary-400">impalatransferist@gmail.com</a>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3 rtl:space-x-reverse">

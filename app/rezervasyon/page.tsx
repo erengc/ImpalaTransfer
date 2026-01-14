@@ -30,7 +30,7 @@ const [duration, setDuration] = useState(0);
 
 useEffect(() => {
   // Client-side'da random değer üret
-  const randomDistance = Math.floor(Math.random() * 50) + 20;
+  const randomDistance = Math.floor(Math.random() * 50) + 10;
   setDistance(randomDistance);
   setDuration(Math.floor(randomDistance / 0.8));
 }, []);
@@ -90,7 +90,7 @@ useEffect(() => {
       lbl_min: 'Dk',
       type_one: 'Tek Yön',
       type_round: 'Gidiş-Dönüş',
-      sidebar_note: 'Yandan aracınızı seçin ve konforlu bir yolculuğa atılın.',
+      sidebar_note: 'Aracınızı seçin ve konforlu bir yolculuğa atılın.',
       
       // Contact Box
       contact_title: 'Sorularınız mı var?',

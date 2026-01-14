@@ -1325,8 +1325,8 @@ onClick={() => {
           <li className="flex items-start space-x-2 md:space-x-3">
             <Mail className="w-4 h-4 md:w-5 md:h-5 text-primary-500 mt-0.5 flex-shrink-0" />
             <div>
-              <a href="mailto:info@istanbultransfer.com" className="hover:text-primary-500 transition">
-                info@istanbultransfer.com
+              <a href="mailto:impalatransferist@gmail.com" className="hover:text-primary-500 transition">
+                impalatransferist@gmail.com
               </a>
             </div>
           </li>

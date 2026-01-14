@@ -301,6 +301,234 @@ export const istanbulLocations: Location[] = [
     category: 'hotel_area',
     coords: [28.7878, 40.9761]
   },
+
+  // ========== HAVAALANLARI ==========
+// ... mevcut havalimanları
+
+// ========== ARNAVUTKÖY ==========
+{
+  name: 'Arnavutköy',
+  address: 'Arnavutköy',
+  category: 'district',
+  coords: [28.7333, 41.1833]
+},
+
+// ========== ATAŞEHİR ==========
+{
+  name: 'Ataşehir',
+  address: 'Ataşehir',
+  category: 'district',
+  coords: [29.1247, 40.9828]
+},
+
+// ========== AVCILAR ==========
+{
+  name: 'Avcılar',
+  address: 'Avcılar',
+  category: 'district',
+  coords: [28.7211, 40.9789]
+},
+
+// ========== BAĞCILAR ==========
+{
+  name: 'Bağcılar',
+  address: 'Bağcılar',
+  category: 'district',
+  coords: [28.8572, 41.0394]
+},
+
+// ========== BAHÇELİEVLER ==========
+{
+  name: 'Bahçelievler',
+  address: 'Bahçelievler',
+  category: 'district',
+  coords: [28.8561, 41.0017]
+},
+
+// ========== BAŞAKŞEHİR ==========
+{
+  name: 'Başakşehir',
+  address: 'Başakşehir',
+  category: 'district',
+  coords: [28.8094, 41.0922]
+},
+
+// ========== BAYRAMPAŞA ==========
+{
+  name: 'Bayrampaşa',
+  address: 'Bayrampaşa',
+  category: 'district',
+  coords: [28.9083, 41.0486]
+},
+
+// ========== BEYKOZ ==========
+{
+  name: 'Beykoz',
+  address: 'Beykoz',
+  category: 'district',
+  coords: [29.0978, 41.1319]
+},
+
+// ========== BEYLİKDÜZÜ ==========
+{
+  name: 'Beylikdüzü',
+  address: 'Beylikdüzü',
+  category: 'district',
+  coords: [28.6461, 40.9903]
+},
+
+// ========== ÇATALCA ==========
+{
+  name: 'Çatalca',
+  address: 'Çatalca',
+  category: 'district',
+  coords: [28.4617, 41.1436]
+},
+
+// ========== ÇEKMEKÖY ==========
+{
+  name: 'Çekmeköy',
+  address: 'Çekmeköy',
+  category: 'district',
+  coords: [29.1811, 41.0311]
+},
+
+// ========== ESENLER ==========
+{
+  name: 'Esenler',
+  address: 'Esenler',
+  category: 'district',
+  coords: [28.8756, 41.0433]
+},
+
+// ========== ESENYURT ==========
+{
+  name: 'Esenyurt',
+  address: 'Esenyurt',
+  category: 'district',
+  coords: [28.6764, 41.0344]
+},
+
+// ========== EYÜPSULTAN ==========
+{
+  name: 'Eyüpsultan',
+  address: 'Eyüpsultan',
+  category: 'district',
+  coords: [28.9381, 41.0478]
+},
+
+// ========== GAZİOSMANPAŞA ==========
+{
+  name: 'Gaziosmanpaşa',
+  address: 'Gaziosmanpaşa',
+  category: 'district',
+  coords: [28.9106, 41.0711]
+},
+
+// ========== GÜNGÖREN ==========
+{
+  name: 'Güngören',
+  address: 'Güngören',
+  category: 'district',
+  coords: [28.8711, 41.0186]
+},
+
+// ========== KAĞITHANE ==========
+{
+  name: 'Kağıthane',
+  address: 'Kağıthane',
+  category: 'district',
+  coords: [28.9847, 41.0839]
+},
+
+// ========== KASIMPAŞA ==========
+{
+  name: 'Kasımpaşa',
+  address: 'Kasımpaşa, Beyoğlu',
+  category: 'district',
+  coords: [28.9722, 41.0411]
+},
+
+// ========== KÜÇÜKÇEKMECE ==========
+{
+  name: 'Küçükçekmece',
+  address: 'Küçükçekmece',
+  category: 'district',
+  coords: [28.7778, 41.0058]
+},
+
+// ========== MALTEPE ==========
+{
+  name: 'Maltepe',
+  address: 'Maltepe',
+  category: 'district',
+  coords: [29.1378, 40.9358]
+},
+
+// ========== SANCAKTEPE ==========
+{
+  name: 'Sancaktepe',
+  address: 'Sancaktepe',
+  category: 'district',
+  coords: [29.2319, 40.9958]
+},
+
+// ========== SARIYER ==========
+{
+  name: 'Sarıyer',
+  address: 'Sarıyer',
+  category: 'district',
+  coords: [29.0547, 41.1686]
+},
+
+// ========== ŞİŞLİ ==========
+{
+  name: 'Şişli',
+  address: 'Şişli',
+  category: 'district',
+  coords: [28.9869, 41.0608]
+},
+
+// ========== SULTANBEYLİ ==========
+{
+  name: 'Sultanbeyli',
+  address: 'Sultanbeyli',
+  category: 'district',
+  coords: [29.2631, 40.9658]
+},
+
+// ========== SULTANGAZİ ==========
+{
+  name: 'Sultangazi',
+  address: 'Sultangazi',
+  category: 'district',
+  coords: [28.8978, 41.1064]
+},
+
+// ========== TUZLA ==========
+{
+  name: 'Tuzla',
+  address: 'Tuzla',
+  category: 'district',
+  coords: [29.2958, 40.8225]
+},
+
+// ========== ÜMRANİYE ==========
+{
+  name: 'Ümraniye',
+  address: 'Ümraniye',
+  category: 'district',
+  coords: [29.1094, 41.0211]
+},
+
+// ========== ZEYTİNBURNU ==========
+{
+  name: 'Zeytinburnu',
+  address: 'Zeytinburnu',
+  category: 'district',
+  coords: [28.9014, 40.9908]
+},
+
 ];
 
 // Arama fonksiyonu

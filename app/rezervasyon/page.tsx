@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Car, Users, MapPin, Clock, CheckCircle, ArrowLeft, Star, Plane, Mail, Phone, Briefcase, MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -8,11 +8,11 @@ import Footer from '../components/Footer';
 import { useCurrency } from '../contexts/CurrencyContext';
 import CurrencySwitcher from '../components/CurrencySwitcher';
 
-export default function RezervasyonPage() {
+function RezervasyonContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-      // Currency hook ekle
+  // Currency hook ekle
   const { convertPrice, getCurrencySymbol } = useCurrency();
   
   // URL Parametreleri
@@ -38,6 +38,9 @@ export default function RezervasyonPage() {
       setLanguage(savedLanguage as 'tr' | 'en' | 'de' | 'ru' | 'ar');
     }
   }, []);
+
+  // ... (TÜM DİĞER KODLARIN BURAYA GELMESİ - translations, vehicles, handleReservation vb.)
+  // ... (return kısmı da dahil TÜM JSX BURAYA)
 
   const changeLanguage = (newLang: 'tr' | 'en' | 'de' | 'ru' | 'ar') => {
     setLanguage(newLang);
@@ -864,5 +867,20 @@ const showPrice = !(
 
       <Footer language={language} />
     </div>
+  );
+}
+
+export default function RezervasyonPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-cream-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-primary-500 mx-auto mb-4"></div>
+          <p className="text-gray-600 font-semibold">Yükleniyor...</p>
+        </div>
+      </div>
+    }>
+      <RezervasyonContent />
+    </Suspense>
   );
 }

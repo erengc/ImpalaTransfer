@@ -565,7 +565,6 @@ const filteredVehicles = vehicles.filter(vehicle => {
                   alt="İstanbul Transfer Logo" 
                   className="w-6 h-6"
                 />
-                <h1 className="text-xl font-bold text-gray-800">Impala Transfer</h1>
               </div>
             </div>
           </div>

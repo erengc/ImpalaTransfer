@@ -1271,7 +1271,7 @@ const heroContent = [
     return;
   }
   
-  let basePrice = 62; // EUR bazlı fiyat
+  let basePrice = 55; // EUR bazlı fiyat
   const pickup = pickupLocation.toLowerCase();
   const dropoff = dropoffLocation.toLowerCase();
   
@@ -1283,22 +1283,19 @@ const heroContent = [
   
   // Havalimanı ekstra ücretleri
   if (pickup.includes('havalimanı') || pickup.includes('havalimani') || pickup.includes('airport')) {
-    basePrice += 15;
+    basePrice += 5;
   }
   if (dropoff.includes('havalimanı') || dropoff.includes('havalimani') || dropoff.includes('airport')) {
-    basePrice += 15;
+    basePrice += 5;
   }
   
   // Sabiha Gökçen ekstra
   if (pickup.includes('sabiha') || dropoff.includes('sabiha')) {
-    basePrice += 10;
+    basePrice += 15;
   }
   
   // Yolcu sayısına göre
   const passengerCount = parseInt(passengers);
-  if (passengerCount > 3) {
-    basePrice += (passengerCount - 3) * 8;
-  }
   if (passengerCount > 6) {
     basePrice += 25;
   }
